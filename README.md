@@ -1,4 +1,4 @@
-<img src="assets/banner.png" alt="Offensive Networking" width="100%"/>
+<img src="https://i.imgur.com/0nN8v4P.png" alt="Offensive Networking Banner" width="100%"/>
 
 [![GitHub stars](https://img.shields.io/github/stars/HosseinMahdavi-84/Offensive-Networking?style=social)](https://github.com/HosseinMahdavi-84/Offensive-Networking/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/HosseinMahdavi-84/Offensive-Networking?style=social)](https://github.com/HosseinMahdavi-84/Offensive-Networking/network/members)
@@ -30,3 +30,38 @@ Inspired by PayloadsAllTheThings • HackTricks • ired.team
 ---
 
 ## Repository Structure
+01-Fundamentals/
+02-Recon-and-Enumeration/
+03-Man-in-the-Middle/
+04-Sniffing-and-Spoofing/
+05-DNS-Attacks/
+06-HTTP-and-Web-Attacks/
+07-CDN-and-Reverse-Proxy-Bypass/
+08-Tunneling-and-Pivoting/
+09-Advanced-Topics/
+Cheat-Sheets/
+Labs/
+assets/
+
+---
+
+## Quick Cheat Sheets
+- [nmap one-liners](Cheat-Sheets/nmap-cheat-sheet.md)
+- [Wireshark filters](Cheat-Sheets/wireshark-filters.md)
+- [Scapy one-liners](Cheat-Sheets/scapy-one-liners.md)
+- [Master quick reference](Cheat-Sheets/quick-reference.md)
+
+---
+
+## Recommended Labs
+Curated list of the best hands-on labs from TryHackMe, Hack The Box, PortSwigger and VulnHub → [Labs/Labs.md](Labs/Labs.md)
+
+---
+
+## Contributing
+Found a new technique, tool or lab? Open a Pull Request!  
+Guidelines → [CONTRIBUTING.md](CONTRIBUTING.md)
+
+---
+
+Made with 🔥 by [Hossein Mahdavi](https://github.com/HosseinMahdavi-84)
