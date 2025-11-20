@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/0nN8v4P.png" alt="Offensive Networking Banner" width="100%"/>
+<img src="https://i.postimg.cc/0jXJ1QbX/offensive-networking-banner.png" alt="Offensive Networking" width="100%"/>
 
 [![GitHub stars](https://img.shields.io/github/stars/HosseinMahdavi-84/Offensive-Networking?style=social)](https://github.com/HosseinMahdavi-84/Offensive-Networking/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/HosseinMahdavi-84/Offensive-Networking?style=social)](https://github.com/HosseinMahdavi-84/Offensive-Networking/network/members)
