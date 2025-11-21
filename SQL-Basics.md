@@ -65,7 +65,7 @@
 
  # Structure
 
- ![Database.drawio.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/fcf6996a-b7d4-4287-a8c8-120924c3423f/Database.drawio.png)
+ ![Database.drawio.png](/images/Database.drawio.png)
 
  ---
 
@@ -73,7 +73,7 @@
 
  - **Relationship between two tables:**
 
- ![Database.drawio2.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-7b7a-4d4f-a2b3-f193f8cbab14/Database.drawio2.png)
+ ![Database.drawio2.png](/images/Database.drawio2.png)
 
  ```sql
  FOREIGN KEY (user_id) REFERENCES Users(id)
@@ -160,7 +160,7 @@
 
  - When we install **mysql-server**, the **mysql-client** is installed simultaneously as a dependency.
 
- ![Database.Diagram.drawio3.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-26f3d76c-e83c-4232-aa23-17888556278f/Database.Diagram.drawio3.png)
+ ![Database.Diagram.drawio3.png](/images/Database.Diagram.drawio3.png)
 
  ```bash
  mysql -u root # mysql = client
