@@ -322,3 +322,729 @@ Edit your Apache configuration file and add the following (`/etc/apache2/sites-a
 	```bash
 	systemctl restart apache2
 	```
+# cURL Complete Cheatsheet
+
+A clean and comprehensive **cURL command reference** suitable for GitHub documentation.
+
+---
+
+## 📌 Basic Usage
+
+### **GET Request (default)**
+
+```bash
+curl https://example.com
+```
+
+### **Save Output to File**
+
+```bash
+curl https://example.com -o output.html
+```
+
+### **Follow Redirects**
+
+```bash
+curl -L https://example.com
+```
+
+### **Silent Mode (no progress bar)**
+
+```bash
+curl -s https://example.com
+```
+
+---
+
+## 📌 Request Details
+
+### **Verbose Output (show full request/response)**
+
+```bash
+curl -v https://example.com
+```
+
+### **Show Only Headers (HEAD)**
+
+```bash
+curl -I https://example.com
+```
+
+### **Show Only Response Headers**
+
+```bash
+curl -s -D - https://example.com -o /dev/null
+```
+
+### **Show Only Status Code**
+
+```bash
+curl -o /dev/null -s -w "%{http_code}\n" https://example.com
+```
+
+---
+
+## 📌 HTTP Methods
+
+### **POST**
+
+```bash
+curl -X POST https://example.com -d "name=John&age=30"
+```
+
+### **PUT**
+
+```bash
+curl -X PUT https://example.com/users/1 -d "name=Mike"
+```
+
+### **PATCH**
+
+```bash
+curl -X PATCH https://example.com/users/1 -d "status=active"
+```
+
+### **DELETE**
+
+```bash
+curl -X DELETE https://example.com/users/1
+```
+
+### **Custom Method**
+
+```bash
+curl -X OPTIONS https://example.com
+```
+
+---
+
+## 📌 Sending Data
+
+### **Form Data (application/x-www-form-urlencoded)**
+
+```bash
+curl -d "user=test&pass=123" https://example.com/login
+```
+
+### **JSON Body**
+
+```bash
+curl -X POST https://example.com/api \
+     -H "Content-Type: application/json" \
+     -d '{"key":"value"}'
+```
+
+### **Send File as Data**
+
+```bash
+curl -X POST -d @data.json https://example.com/api
+```
+
+---
+
+## 📌 Headers
+
+### **Add a Header**
+
+```bash
+curl -H "User-Agent: CustomAgent" https://example.com
+```
+
+### **Multiple Headers**
+
+```bash
+curl -H "Accept: application/json" -H "X-Test: true" https://example.com
+```
+
+### **Send Cookies**
+
+```bash
+curl -H "Cookie: session=abcd1234" https://example.com
+```
+
+### **Store Cookies**
+
+```bash
+curl -c cookies.txt https://example.com
+```
+
+### **Send Cookies from File**
+
+```bash
+curl -b cookies.txt https://example.com
+```
+
+---
+
+## 📌 Authentication
+
+### **Basic Authentication**
+
+```bash
+curl -u username:password https://example.com
+```
+
+### **Bearer Token**
+
+```bash
+curl -H "Authorization: Bearer TOKEN" https://example.com
+```
+
+### **Client Certificate**
+
+```bash
+curl --cert mycert.pem https://example.com
+```
+
+---
+
+## 📌 Network Options
+
+### **Specify Interface**
+
+```bash
+curl --interface eth0 https://example.com
+```
+
+### **Set Timeout**
+
+```bash
+curl --max-time 10 https://example.com
+```
+
+### **Use Proxy**
+
+```bash
+curl -x http://127.0.0.1:8080 https://example.com
+```
+
+### **SOCKS Proxy**
+
+```bash
+curl -x socks5://127.0.0.1:9050 https://example.com
+```
+
+---
+
+## 📌 File Transfer
+
+### **Download a File**
+
+```bash
+curl -O https://example.com/file.zip
+```
+
+### **Upload a File**
+
+```bash
+curl -T upload.zip https://example.com/upload/
+```
+
+### **Multipart Upload**
+
+```bash
+curl -F "file=@image.png" https://example.com/upload
+```
+
+---
+
+## 📌 Debugging & Testing
+
+### **Show DNS Details**
+
+```bash
+curl -v --trace-ascii debug.txt https://example.com
+```
+
+### **Test HTTPS Certificate**
+
+```bash
+curl -vI https://example.com
+```
+
+### **Ignore Certificate Verification**
+
+```bash
+curl -k https://example.com
+```
+
+---
+
+## 📌 Output Formatting
+
+### **Show Total Time**
+
+```bash
+curl -w "%{time_total}\n" -o /dev/null -s https://example.com
+```
+
+### **Show Full Performance Stats**
+
+```bash
+curl -w "\nTime Connect: %{time_connect}\nTime Total: %{time_total}\nSpeed: %{speed_download}\n" \
+     -o /dev/null -s https://example.com
+```
+
+---
+
+## 📌 FTP / SFTP
+
+### **Download via FTP**
+
+```bash
+curl ftp://example.com/file.zip -u user:pass -O
+```
+
+### **Upload via FTP**
+
+```bash
+curl -T file.zip ftp://example.com/ -u user:pass
+```
+
+### **SFTP Upload**
+
+```bash
+curl -T file.txt sftp://example.com/home/user/ -u user:pass
+```
+
+---
+
+## 📌 Useful Combined Examples
+
+### **Send JSON + Custom Header + Save Output**
+
+```bash
+curl -X POST https://example.com/api \
+     -H "Content-Type: application/json" \
+     -H "X-API-Key: 123" \
+     -d '{"test":"ok"}' \
+     -o response.json
+```
+
+### **Follow Redirects + Save Cookies + Verbose**
+
+```bash
+curl -L -c cookies.txt -v https://example.com
+```
+
+---
+
+### ✔ This cheatsheet is ready for GitHub.
+
+If you want, I can also:
+
+* Add icons / emoji versions
+* Create an advanced cURL guide
+* Add examples for API pentesting
+* Make a downloadable PDF version
+
+# **`dig` Command – Complete Cheatsheet**
+
+A clear, GitHub-ready reference for using **`dig` (Domain Information Groper)** — a DNS lookup tool for querying DNS records.
+
+---
+
+# 📌 **Basic Syntax**
+
+```
+dig [options] [domain] [record_type] [@name_server]
+```
+
+---
+
+# 🚀 **Most Common Commands**
+
+## **1. Simple A Record Lookup**
+
+```
+dig example.com
+```
+
+## **2. Query Specific DNS Record**
+
+```
+dig A example.com
+```
+
+Examples:
+
+```
+dig A example.com
+
+dig AAAA example.com
+
+dig MX example.com
+
+dig NS example.com
+
+dig TXT example.com
+
+dig CNAME www.example.com
+```
+
+---
+
+# 🎯 **Short Output (clean result only)**
+
+```
+dig +short example.com
+
+dig A +short example.com
+
+dig MX +short example.com
+
+dig TXT +short example.com
+```
+
+---
+
+# 🧭 **Querying a Specific Name Server**
+
+Use `@nameserver` to ask a domain's authoritative server:
+
+```
+dig A example.com @ns1.example.com
+```
+
+---
+
+# 🔍 **Reverse DNS Lookup**
+
+```
+dig -x 8.8.8.8
+```
+
+---
+
+# 🛠️ **Using Flags / Options**
+
+## **1. +trace** (Full DNS resolution path)
+
+```
+dig example.com +trace
+```
+
+Shows: Root → TLD → Authoritative NS
+
+## **2. +nocmd** (Hide the header)
+
+```
+dig example.com +nocmd
+```
+
+## **3. +noall +answer** (Only show the answer section)
+
+```
+dig example.com +noall +answer
+```
+
+## **4. +stats** (Show statistics)
+
+```
+dig example.com +stats
+```
+
+## **5. Ask for ANY record**
+
+```
+dig ANY example.com
+```
+
+*(Not all servers respond to ANY queries anymore)*
+
+---
+
+# 🌍 **DNS Server Info**
+
+## **Check which DNS server answered:**
+
+```
+dig example.com | grep SERVER
+```
+
+## **Specify DNS port**
+
+```
+dig @8.8.8.8 -p 53 example.com
+```
+
+---
+
+# 🧪 **SOA Record (Start of Authority)**
+
+```
+dig SOA example.com
+```
+
+---
+
+# 🧵 **Query Multiple Records at Once**
+
+```
+dig example.com A MX TXT
+```
+
+---
+
+# 🔄 **Query DNS over TCP**
+
+```
+dig +tcp example.com
+```
+
+---
+
+# 📡 **Query with Custom Resolver File**
+
+```
+dig -f domains.txt
+```
+
+Where `domains.txt` contains a list of domains.
+
+---
+
+# 📁 **Output to File**
+
+```
+dig example.com > output.txt
+```
+
+---
+
+# 🔐 **DNSSEC Checks**
+
+```
+dig example.com +dnssec
+```
+
+---
+
+# 🧩 **Full Example Session**
+
+```
+dig A example.com @8.8.8.8 +trace +stats
+```
+
+---
+
+# 🏁 **Quick Reference Table**
+
+| Task                | Command                          |
+| ------------------- | -------------------------------- |
+| Get A record        | `dig A domain.com`               |
+| Short IP only       | `dig +short domain.com`          |
+| Get MX records      | `dig MX domain.com`              |
+| Query NS            | `dig NS domain.com`              |
+| Reverse DNS         | `dig -x IP`                      |
+| Ask specific NS     | `dig domain.com @ns1.domain.com` |
+| Trace resolution    | `dig +trace domain.com`          |
+| Only answer section | `dig +noall +answer domain.com`  |
+| DNSSEC check        | `dig +dnssec domain.com`         |
+
+---
+# **`dig` Command – Complete Cheatsheet**
+
+A clear, GitHub-ready reference for using **`dig` (Domain Information Groper)** — a DNS lookup tool for querying DNS records.
+
+---
+
+# 📌 **Basic Syntax**
+
+```
+dig [options] [domain] [record_type] [@name_server]
+```
+
+---
+
+# 🚀 **Most Common Commands**
+
+## **1. Simple A Record Lookup**
+
+```
+dig example.com
+```
+
+## **2. Query Specific DNS Record**
+
+```
+dig A example.com
+```
+
+Examples:
+
+```
+dig A example.com
+
+dig AAAA example.com
+
+dig MX example.com
+
+dig NS example.com
+
+dig TXT example.com
+
+dig CNAME www.example.com
+```
+
+---
+
+# 🎯 **Short Output (clean result only)**
+
+```
+dig +short example.com
+
+dig A +short example.com
+
+dig MX +short example.com
+
+dig TXT +short example.com
+```
+
+---
+
+# 🧭 **Querying a Specific Name Server**
+
+Use `@nameserver` to ask a domain's authoritative server:
+
+```
+dig A example.com @ns1.example.com
+```
+
+---
+
+# 🔍 **Reverse DNS Lookup**
+
+```
+dig -x 8.8.8.8
+```
+
+---
+
+# 🛠️ **Using Flags / Options**
+
+## **1. +trace** (Full DNS resolution path)
+
+```
+dig example.com +trace
+```
+
+Shows: Root → TLD → Authoritative NS
+
+## **2. +nocmd** (Hide the header)
+
+```
+dig example.com +nocmd
+```
+
+## **3. +noall +answer** (Only show the answer section)
+
+```
+dig example.com +noall +answer
+```
+
+## **4. +stats** (Show statistics)
+
+```
+dig example.com +stats
+```
+
+## **5. Ask for ANY record**
+
+```
+dig ANY example.com
+```
+
+*(Not all servers respond to ANY queries anymore)*
+
+---
+
+# 🌍 **DNS Server Info**
+
+## **Check which DNS server answered:**
+
+```
+dig example.com | grep SERVER
+```
+
+## **Specify DNS port**
+
+```
+dig @8.8.8.8 -p 53 example.com
+```
+
+---
+
+# 🧪 **SOA Record (Start of Authority)**
+
+```
+dig SOA example.com
+```
+
+---
+
+# 🧵 **Query Multiple Records at Once**
+
+```
+dig example.com A MX TXT
+```
+
+---
+
+# 🔄 **Query DNS over TCP**
+
+```
+dig +tcp example.com
+```
+
+---
+
+# 📡 **Query with Custom Resolver File**
+
+```
+dig -f domains.txt
+```
+
+Where `domains.txt` contains a list of domains.
+
+---
+
+# 📁 **Output to File**
+
+```
+dig example.com > output.txt
+```
+
+---
+
+# 🔐 **DNSSEC Checks**
+
+```
+dig example.com +dnssec
+```
+
+---
+
+# 🧩 **Full Example Session**
+
+```
+dig A example.com @8.8.8.8 +trace +stats
+```
+
+---
+
+# 🏁 **Quick Reference Table**
+
+| Task                | Command                          |
+| ------------------- | -------------------------------- |
+| Get A record        | `dig A domain.com`               |
+| Short IP only       | `dig +short domain.com`          |
+| Get MX records      | `dig MX domain.com`              |
+| Query NS            | `dig NS domain.com`              |
+| Reverse DNS         | `dig -x IP`                      |
+| Ask specific NS     | `dig domain.com @ns1.domain.com` |
+| Trace resolution    | `dig +trace domain.com`          |
+| Only answer section | `dig +noall +answer domain.com`  |
+| DNSSEC check        | `dig +dnssec domain.com`         |
+
+---
