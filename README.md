@@ -21,7 +21,7 @@ Perfect for:
 - Real-world tasks & commands
 
 ### Main Content
-[→ Open networking-basic.md](networking-basic.md)
+[→ Open networking-basic.md](Networking-Basics.md)
 
 ### Author & Credits
 **Hossein Mahdavi**  
@@ -39,32 +39,3 @@ MIT License — Free to use, share, and improve.
 If this helped you even a little, please give it a ⭐ — it really motivates me to create more free resources!
 
 ---
-
-# مبانی شبکه برای پنتسترها
-
-**راهنمای ساده، کاربردی و بدون حاشیه از مفاهیم شبکه که توی پنتست و باگ‌بانتی واقعاً به کار میاد.**
-
-این ریپازیتوری فقط یه فایل داره و فقط چیزایی رو پوشش می‌ده که توی عملیات واقعی استفاده می‌شه.
-
-مناسب برای:
-- تازه‌کارهای امنیت تهاجمی
-- هانترهای باگ‌بانتی که نیاز به مرور سریع دارن
-- پنتسترها قبل از شروع engagement
-
-### محتوای اصلی
-[→ باز کردن فایل networking-basic.md](networking-basic.md)
-
-### نویسنده و منبع
-**حسین مهدوی**  
-گردآوری شده از دوره‌ها و لاب‌های آکادمی **Voorivex**
-
-### ارتباط با من
-- وبسایت/بلاگ: [hosseinmahdave.ir](https://www.hosseinmahdave.ir/)
-- لینکدین: [linkedin.com/in/hossein-mahdavi-b43768284](https://www.linkedin.com/in/hossein-mahdavi-b43768284)
-- اینستاگرام: [@hosseinmahdavi.84](https://www.instagram.com/hosseinmahdavi.84/)
-- توییتر/X: [@Mahdvi_110011](https://twitter.com/Mahdavi_110011)
-
-آخرین به‌روزرسانی: آبان ۱۴۰۴  
-لایسنس MIT — آزاد برای استفاده و اشتراک‌گذاری
-
-اگه برات مفید بود یه ⭐ بزن که بقیه هم پیداش کنن و انگیزه‌ام بیشتر بشه 🙌
