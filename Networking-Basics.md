@@ -1,161 +1,326 @@
-# Networking Basics for Offensive Security
+# Network
 
-## Why Learn Networking as a Pentester / Bug Bounty Hunter?
+## Why?
 
-- The entire internet is one giant interconnected network
-- Discover advanced vulnerabilities (HTTP Request Smuggling, DESYNC attacks, etc.)
-- Bypass firewalls, WAFs, IDS/IPS and other security devices
-- Perform large-scale reconnaissance in bug bounty programs
-- Exploit protocol weaknesses and misconfigurations effectively
+- The internet is an universal network
+- To discover vulnerabilities (Smuggling, etc)
+- To bypass security devices (Firewall, etc)
+- To conduct wide recon in bug bounty
+- To exploit vulnerabilities
 
-## Core Terminology
+## Terminology
 
-| Term     | Definition                                                  |
-|----------|--------------------------------------------------------------|
-| Bypass   | Circumventing a security mechanism                           |
-| Exploit  | Taking advantage of a vulnerability to gain unauthorized access |
+- **bypass**: circumventing a security measure
+- **exploit**: taking advantage of vulnerabilities
 
-## Fundamental Concepts
+## Network
 
-| Concept   | Description                                                                 |
-|-----------|-----------------------------------------------------------------------------|
-| Protocol  | Set of rules that allows computers to communicate with each other           |
-| Client    | Device that requests resources or services                                  |
-| Server    | Device that provides resources or services                                  |
-| Internet  | Global network consisting of millions of clients and servers                |
+- **Protocol**: rules for computers to communicate (computer context)
+- **Client**: a computer in network
+- **Server**: a computer in network which serves data
+- **Internet**: a big network (clients and servers)
 
-## The OSI Model (7 Layers)
+## OSI Model
 
-Introduced in 1984 to standardize communication between different systems.
+- Introduced in 1984
+- Communication in dissimilar environment
+- Each responsible for specific tasks
+- Layers work together to facilitate data transmission
+- Made up of seven distinct layers
+	1. **Application**: HTTP, SSH, SMTP, DNS, etc
+	2. **Presentation**: Compression and Encryption (SSL)
+	3. **Session**: Management of connections (without error)
+	4. **Transport**: TCP and UDP (assembling by sequence numbers)
+	5. **Network**: IP address, routing (finding the best path to send data from the source to the destination by the router)
+	6. **Data Link**: MAC address (physical address of computer)
+	7. **Physical**: Physical layer
 
-| Layer | Name            | Responsibility                                                                 | Examples / Protocols                     |
-|-------|-----------------|---------------------------------------------------------------------------------|------------------------------------------|
-| 7     | Application     | Provides network services directly to end-user applications                     | HTTP, HTTPS, SSH, SMTP, DNS, FTP         |
-| 6     | Presentation    | Data translation, encryption, compression                                       | SSL/TLS, JPEG, MPEG, character encoding  |
-| 5     | Session         | Establishes, manages and terminates communication sessions                      | NetBIOS, RPC                             |
-| 4     | Transport       | End-to-end delivery, segmentation, error control, flow control                 | TCP (reliable), UDP (fast)               |
-| 3     | Network         | Logical addressing and routing between different networks                       | IP, ICMP, routers                        |
-| 2     | Data Link       | Physical addressing and error detection on the local network                    | MAC addresses, Ethernet, ARP, switches   |
-| 1     | Physical        | Transmission and reception of raw bit streams over physical medium             | Cables, Wi-Fi, hubs, repeaters           |
+## Connection
 
-## Connections – How Devices Talk
+- **IP**: internet address to reach a computer
+- **Port**: various channels to communicate
+- **Router**: routes the traffic to the destination
+	- Making connection requires, IP and Port
+	- IP: PORT → example: 192.168.1.2:25
 
-- **IP Address** → Unique logical address to identify a device on the network  
-  Example: `192.168.1.100` or `142.250.190.14`
-- **Port** → Logical endpoint for communication (0–65535)  
-  Well-known ports: 80 (HTTP), 443 (HTTPS), 22 (SSH), 53 (DNS)
-- **Full Connection** = IP + Port  
-  Example: `192.168.1.10:8080` or `example.com:443`
+![Untitled Diagram.drawio5.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/563ab46a-3279-4cfa-91aa-9b664dd01db7/Untitled_Diagram.drawio5.png)
 
-> Router's job: Find the best path and forward packets from source to destination
+### **TCP**
 
-<img src="/images/Untitled_Diagram.drawio5.png" alt="Offensive Networking" width="100%"/>
-## TCP vs UDP
+Responsible for:
 
-| Feature                  | TCP (Transmission Control Protocol)               | UDP (User Datagram Protocol)      |
-|--------------------------|----------------------------------------------------|------------------------------------|
-| Connection               | Connection-oriented (3-way handshake)              | Connectionless                     |
-| Reliability              | Guaranteed delivery + retransmission on failure    | No guarantee (fire and forget)     |
-| Ordering                 | Preserves order using sequence numbers             | No ordering                        |
-| Speed                    | Slower due to overhead                             | Very fast                          |
-| Error Checking           | Yes                                                | Basic checksum only                |
-| Common Use               | Web, email, file transfer, SSH                     | DNS queries, streaming, VoIP, games|
-<img src="/images/Untitled_Diagram.drawio6.png" alt="Offensive Networking" width="100%"/>
-### TCP 3-Way Handshake
+- Breaking the data into manageable packets
+- `Connection-oriented` protocol (res-sends of fails)
+- Ensuring that packets reach their destination
 
-```text
-1. Client → Server : SYN
-2. Server → Client : SYN-ACK
-3. Client → Server : ACK
-→ Connection successfully established
+### **UDP**
 
-# DNS Fundamentals – Attacker's Perspective
+- Connectionless conversation
 
-## What is DNS?
+### 3-Way Handshake (TCP)
 
-- Domain Name System (DNS) is the phonebook of the internet
-- Translates human-readable domain names → IP addresses
-- Critical network protocol running primarily over **UDP port 53** (sometimes TCP 53)
+![Untitled Diagram.drawio6.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/a2725e9b-5b3d-4850-9bbf-68ba299200df/Untitled_Diagram.drawio6.png)
 
-## Basic DNS Workflow
+---
 
-```text
-You type:    google.com
-Browser → OS → DNS Resolver → Returns 142.250.190.14
-→ Connection established
-<img src="/images/Untitled_Diagram.drawio7.png" alt="Offensive Networking" width="100%"/>
+## DNS (Domain Name Service)
 
-Common DNS Tools
+- Network Protocol
+- Works over `UDP`
+- We can send DNS queries using the `dig` and `ping` commands.
+- Browser do this (`name resolution`)
 
-dig google.com
+```bash
 dig memoryleaks.ir
+ping memoryleaks.ir
+```
 
-ping google.com          # also triggers DNS resolution
-nslookup google.com
-host google.com
+![Untitled Diagram.drawio7.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/1836413d-4da7-4ad6-8a49-51217cb3995c/Untitled_Diagram.drawio7.png)
 
-Term,Definition
-DNS Query,"Request asking ""What is the IP for this domain?"""
-Name Resolution,Process of converting domain name → IP address
-DNS Client,Your machine (or stub resolver) sending the query
-DNS Server,Server that answers DNS queries (also called Name Server)
-Recursive Resolver,"Usually your ISP or public DNS (8.8.8.8, 1.1.1.1) that does the full lookup"
-Authoritative NS,The final DNS server that holds the real records for a domain
+- **DNS Query**: a request asking for the IP address
+- **DNS Client**: a machine sending `name resolution` queries
+	- **name resolution**: converting domain name into an IP address (domain → IP)
+- **DNS Server**: a machine which responds to DNS queries
+- **Name Server**: a machine which responds to DNS queries
 
-Where Does Your Machine Get the DNS Server IP?
-Two ways:
+---
 
-Automatically via DHCP (from modem/router or ISP)
-Manually configured in Linux:
+### How and where does the DNS server IP address come from?
 
-Bashcat /etc/resolv.conf
+- The DNS server IP address is automatically assigned by the modem or the Internet Service Provider (ISP)
+- Or it is manually entered by the user in the `/etc/resolv.conf` file
+
+```bash
+vim /etc/resolv.conf
+
 nameserver 8.8.8.8
-nameserver 1.1.1.1
-Pro tip: Change to public DNS for speed & privacy
-Bashecho "nameserver 1.1.1.1" | sudo tee /etc/resolv.conf
-DNS Resolution Chain (Real Example)
-textmemoryleaks.ir
-       ↓
-Local cache /etc/hosts → No
-       ↓
-Local DNS (127.0.0.1 or systemd-resolved)
-       ↓
-Router/Modem (192.168.1.1)
-       ↓
-ISP or Public DNS (8.8.8.8)
-       ↓
-Root Servers (.)
-       ↓
-Top-Level Domain (.ir)
-       ↓
-Authoritative Name Servers for memoryleaks.ir
-       ↓
-Returns A record → IP address
-Where Are Authoritative Name Servers Configured?
+```
 
-In your domain registrar or DNS provider panel
-Namecheap, Cloudflare, GoDaddy, NIC.ir, etc.
-You set NS records like:textns1.cloudflare.com
-ns2.cloudflare.com
+### Hierarchical process
 
-<img src="/images/photo_2024-09-19_16-44-33.jpg" alt="Offensive Networking" width="100%"/>
+![photo_2024-09-19_16-44-33.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/43e3f4b4-9bf2-44c0-a4f2-9b6ced25a75b/photo_2024-09-19_16-44-33.jpg)
 
-Quick Cheat Sheet – Common dig Commands
-Bashdig google.com               # Full answer
-dig google.com +short        # Just IP
-dig google.com A +short      # IPv4
-dig google.com AAAA +short   # IPv6
-dig google.com MX +short     # Mail servers
-dig google.com NS +short     # Name servers
-dig google.com TXT +short    # TXT records (SPF, DKIM, etc.)
+### Chain
 
-# Query directly from authoritative server (bypass cache)
-dig @ns1.cloudflare.com google.com
-Bonus: Manual DNS Override (/etc/hosts)
-Fastest way to "spoof" DNS locally:
-Bashsudo nano /etc/hosts
+- memoryleaks.ir → DNS → 127.0.0.1 → 192.168.1.1 → 8.8.8.8 → Root → .ir → NS
 
-# Add line:
-10.10.10.100    admin.target.com
-127.0.0.1       evil.com
-Now your browser will go to that IP without any real DNS query!
+### Where are the name servers (NS) for a domain managed and configured?
+
+- Domain Panel
+
+---
+
+## DNS Records
+
+- **A** Record: IPv4 address
+- **AAAA** Record: IPv6 address
+- **CNAME** Record: pointing to another domain
+- **MX** Record: mail servers responsible for receiving emails
+- **TXT** Records: text information (anything)
+- **NS** Record: authoritative name servers
+	- **authoritative name servers**: legit name servers of a domain
+    
+	> We can manually configure the name servers or use the pre-configured name servers provided by service providers
+	> 
+
+```bash
+dig A +short securityflow.io
+dig AAAA +short securityflow.io
+dig NS +short securityflow.io
+dig CNAME +short securityflow.io
+dig MX +short securityflow.io
+dig TXT +short securityflow.io
+```
+
+## Host File
+
+- Manual method of Name Resolution
+- We perform that through the `/etc/hosts` file
+
+```bash
+vim /etc/hosts
+
+127.0.0.1 attacker.com
+```
+
+---
+
+## Web Server
+
+- Serving resource to users by **HTTP** protocol (IP/TCP/HTTP)
+- Different web servers, such as Apache and Nginx, have different configurations
+- We can find the **main configuration** in `/etc/apache2/apache2.conf`
+	- **directive**: a configuration command to change settings
+
+### several sub-configuration files
+
+- directive: **IncludeOptional** (IncludeOptional `another.conf`)
+
+### Directives
+
+- **DocumentRoot**:  directory where files and folders are (The default DocumentRoot path is set to `/var/www/html`)
+- **ServerName**: hostname for a virtual host
+- **Listen**: The IP and port where Apache is bound
+- **ErrorLog**: location of the error files
+- **Include**: including another configuration file
+- **IncludeOptional**: including another configuration file
+- **Directory**: to enclose a group of directories
+- **Files**: To limit the scope of the enclosed directive
+- **IfModule**: directive only applied if module is present
+
+### Security
+
+- Apache needs to start as root
+- Listening socket on privileged ports
+- Uses setuid to switch to user
+	- **setuid**: execute a program with the permission of the program’s owner
+	- **www-data** is the user
+
+### Work Flow
+
+![Untitled Diagram.drawio8.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/3fb39532-ba64-4b7e-8852-b012edc649d8/Untitled_Diagram.drawio8.png)
+
+### Virtual Host
+
+- multiple hosts on a server
+- Multiple domains can have the same A record and point to the same IP address. The server uses Virtual Host to determine which site to display for each domain
+
+![Untitled Diagram.drawio9.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/d8824814-2eea-4f46-b869-4d267be754d1/Untitled_Diagram.drawio9.png)
+
+---
+
+## Tips
+
+1. DNS handles the domain
+2. web-server handles the virtual host
+
+---
+
+## URL
+
+- How to fetch a resource from a location
+
+![Untitled Diagram.drawio10.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/ba6f5b92-f227-4819-96d9-37628c51ca4c/Untitled_Diagram.drawio10.png)
+
+## HTTP
+
+- **request line**: Method SP Request-URI SP HTTP-Version CRLF
+	- Method: http verb
+		- to tell servers what action to perform on a resource (`GET`, `POST`, `HEAD`,`PUT`, `PATCH`, `DELETE`, `TRACE`, `OPTIONS`, etc)
+	- SP: ASCII 32
+	- Request-URI: /panel/user.php
+	- HTTP-Version: HTTP/1.0
+	- CRLF: ASCII 13 10
+- **status line**: HTTP-Version SP Status-Code SP Reason-Phrase CRLF
+	- Status-Code:
+		- 200, success
+		- 300, redirection
+		- 400, client error
+		- 500, server error
+- **Headers**: field-name “:” [ field-value ] CRLF
+	- additional information to request/response
+	- Lists of name/value pairs
+	- headers end by CRLF, then body comes
+- **Body**:
+	- contains the main data exchanged between the client and server, such as forms or webpage content
+
+![Untitled Diagram.drawio44.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/d0c318e8-1dbe-49dd-bd28-fd01dc958355/Untitled_Diagram.drawio44.png)
+
+## Headers
+
+- **Host**: specifies the HOST of the server (virtual host)
+- **Referer**: the address of the previous web page
+- **User-Agent**: contains a characteristic string about client
+- **Cookie**: contains stored HTTP cookies
+- **Set-Cookie**: to set a cookie in the user’s web browser (Response Header)
+- **Content-Length**: the size of the resource, in decimal number of bytes
+- **Content-Type**: indicates the media type of resource
+- **Location**: indicates the URL to redirect a page to
+
+### Curl
+
+- `curl` is a command-line tool for transferring data over network protocols like HTTP and FTP
+
+```bash
+curl -v https://35.163.77.62 #method: GET
+curl -v https://35.163.77.62 -I #method: HEAD (doesn't have a response body)
+curl -v https://35.163.77.62 -d "data=test" #method: POST
+```
+
+---
+
+## CDN
+
+- Is a reverse proxy
+- distributes content
+
+![Untitled Diagram.drawio666.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/60a96975-fff4-4e64-9774-6a71ff9589a6/Untitled_Diagram.drawio666.png)
+
+### Proxy
+
+- A proxy is an intermediary server that acts as a gateway between a client and another server, handling requests and responses on behalf of the client
+- It is usually designed for users and clients, particularly for hiding user identity or filtering content
+
+### Reverse Proxy
+
+- A reverse proxy is a server that sits in front of one or more web servers, forwarding client requests to the appropriate backend server and returning the server's response to the client, effectively acting as an intermediary
+- It is typically designed for servers and online services, especially for optimizing performance, security, and load balancing
+
+### Upstream
+
+- The origin IP that receives requests from a reverse proxy, serving as the source of content for client responses
+
+### CDN Features
+
+1. caching
+2. load balancing
+	- **Load balancing** means evenly distributing requests across upstream servers to improve speed and performance
+3. global distribution
+4. DDOS protection
+5. security (waf)
+	- If the request is not malicious, the CDN forwards it to the upstream server
+6. stability
+
+---
+
+## Tasks
+
+### **1. Name Server**
+
+Ask the `A` record of `icollab.info` directly from its name servers by dig command
+
+```bash
+dig A icollab.info @ns1.icollab.info
+```
+
+### 2. **Reverse Proxy**
+
+You should know reverse proxy concept and setup a simple reverse proxy by Nginx or Apache
+
+- **Enable Necessary Modules:**
+    
+	```bash
+	a2enmod proxy
+	a2enmod proxy_http
+	```
+    
+- **Configure the Reverse Proxy:**
+Edit your Apache configuration file and add the following (`/etc/apache2/sites-available/000-default.conf`)
+    
+	```
+	<VirtualHost *:80>
+    
+			ProxyPreserveHost On
+			ProxyPass / http://127.0.0.1:3000/
+			ProxyPassReverse / http://127.0.0.1:3000/
+            
+	</VirtualHost>
+	```
+    
+- **Restart Apache**:
+    
+	```bash
+	systemctl restart apache2
+	```
+
+
