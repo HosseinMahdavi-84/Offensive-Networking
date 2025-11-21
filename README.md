@@ -1,65 +1,39 @@
-[![GitHub stars](https://img.shields.io/github/stars/HosseinMahdavi-84/Offensive-Networking?style=social)](https://github.com/HosseinMahdavi-84/Offensive-Networking/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/HosseinMahdavi-84/Offensive-Networking?style=social)](https://github.com/HosseinMahdavi-84/Offensive-Networking/network/members)
-[![Issues](https://img.shields.io/github/issues/HosseinMahdavi-84/Offensive-Networking)](https://github.com/HosseinMahdavi-84/Offensive-Networking/issues)
-[![License](https://img.shields.io/github/license/HosseinMahdavi-84/Offensive-Networking)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-
 # Offensive Networking
-### The Ultimate Practical Guide for Bug Bounty Hunters, Pentesters & Red Teamers
 
-Master every layer of the network stack from an attacker’s perspective — sniffing, spoofing, MITM, DNS attacks, HTTP smuggling, CDN bypass, tunneling, pivoting and more.
+**Practical Network Cheat Sheets & Tools for Pentesters, Bug Bounty Hunters & Red Teamers**
 
-100% practical, real-world techniques used daily in penetration testing, red teaming and bug bounty programs.
+A hands-on, no-fluff collection of network-layer offensive security techniques, commands, scripts, and labs.
 
-Inspired by PayloadsAllTheThings • HackTricks • ired.team
+### Goal
+- Quick reference during real engagements
+- Ready-to-use commands for nmap, tcpdump, Wireshark, hping3, Scapy, etc.
+- ARP/DHCP/DNS spoofing, MITM, traffic manipulation, bypass techniques
+- Real-world red team & bug bounty network scenarios
 
----
+### Contents
+- `cheatsheets/` → One-page cheat sheets for common tools
+- `scripts/` → Ready-made Scapy/Python/Bash scripts for specific attacks
+- `labs/` → Practice scenarios (Vagrant & pre-built machines)
+- `notes/` → Advanced topics (ICMP tunneling, IPv6 attacks, SDN, etc.)
 
-## Why Offensive Networking Matters
+### Prerequisites
+```bash
+sudo apt install nmap tcpdump wireshark tshark hping3 scapy net-tools python3-scapy
+```
 
-| Reason                              | Real-World Use Case                                  |
-|-------------------------------------|-------------------------------------------------------|
-| Everything runs over the network    | Bypass WAFs, firewalls, IDS/IPS                       |
-| Hidden assets & misconfigurations   | Subdomain takeover, origin IP leaks, ASN recon        |
-| Protocol weaknesses                 | Request smuggling, DNS rebinding, ARP/DHCP spoofing   |
-| Lateral movement & persistence      | SSH/DNS/ICMP/SMTP tunneling, port forwarding          |
-| Evasion & anti-abuse systems       | IPv6 attacks, fragmentation, chunked encoding tricks  |
+### Quick Start
+```bash
+git clone https://github.com/HosseinMahdavi-84/Offensive-Networking.git
+cd Offensive-Networking
+```
 
----
+### License
+MIT License – Feel free to use, modify, and distribute.
 
-## Repository Structure
-01-Fundamentals/
-02-Recon-and-Enumeration/
-03-Man-in-the-Middle/
-04-Sniffing-and-Spoofing/
-05-DNS-Attacks/
-06-HTTP-and-Web-Attacks/
-07-CDN-and-Reverse-Proxy-Bypass/
-08-Tunneling-and-Pivoting/
-09-Advanced-Topics/
-Cheat-Sheets/
-Labs/
-assets/
+### Author
+[Hossein Mahdavi](https://github.com/HosseinMahdavi-84)  
+Security Researcher & Red Teamer
 
----
-
-## Quick Cheat Sheets
-- [nmap one-liners](Cheat-Sheets/nmap-cheat-sheet.md)
-- [Wireshark filters](Cheat-Sheets/wireshark-filters.md)
-- [Scapy one-liners](Cheat-Sheets/scapy-one-liners.md)
-- [Master quick reference](Cheat-Sheets/quick-reference.md)
+⭐ If you find this repository useful, please give it a star so others can discover it too!
 
 ---
-
-## Recommended Labs
-Curated list of the best hands-on labs from TryHackMe, Hack The Box, PortSwigger and VulnHub → [Labs/Labs.md](Labs/Labs.md)
-
----
-
-## Contributing
-Found a new technique, tool or lab? Open a Pull Request!  
-Guidelines → [CONTRIBUTING.md](CONTRIBUTING.md)
-
----
-
-Made with 🔥 by [Hossein Mahdavi](https://github.com/HosseinMahdavi-84)
