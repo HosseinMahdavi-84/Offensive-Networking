@@ -322,5 +322,3 @@ Edit your Apache configuration file and add the following (`/etc/apache2/sites-a
 	```bash
 	systemctl restart apache2
 	```
-
-
