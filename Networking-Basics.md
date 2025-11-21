@@ -43,7 +43,7 @@
 	- Making connection requires, IP and Port
 	- IP: PORT → example: 192.168.1.2:25
 
-![Untitled Diagram.drawio5.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/563ab46a-3279-4cfa-91aa-9b664dd01db7/Untitled_Diagram.drawio5.png)
+![Untitled Diagram.drawio5.png](/images/Untitled_Diagram.drawio5.png)
 
 ### **TCP**
 
@@ -59,7 +59,7 @@ Responsible for:
 
 ### 3-Way Handshake (TCP)
 
-![Untitled Diagram.drawio6.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/a2725e9b-5b3d-4850-9bbf-68ba299200df/Untitled_Diagram.drawio6.png)
+![Untitled Diagram.drawio6.png](/images/Untitled_Diagram.drawio6.png)
 
 ---
 
@@ -75,7 +75,7 @@ dig memoryleaks.ir
 ping memoryleaks.ir
 ```
 
-![Untitled Diagram.drawio7.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/1836413d-4da7-4ad6-8a49-51217cb3995c/Untitled_Diagram.drawio7.png)
+![Untitled Diagram.drawio7.png](/images/Untitled_Diagram.drawio7.png)
 
 - **DNS Query**: a request asking for the IP address
 - **DNS Client**: a machine sending `name resolution` queries
@@ -98,7 +98,7 @@ nameserver 8.8.8.8
 
 ### Hierarchical process
 
-![photo_2024-09-19_16-44-33.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/43e3f4b4-9bf2-44c0-a4f2-9b6ced25a75b/photo_2024-09-19_16-44-33.jpg)
+![photo_2024-09-19_16-44-33.jpg](/images/photo_2024-09-19_16-44-33.jpg)
 
 ### Chain
 
@@ -178,14 +178,14 @@ vim /etc/hosts
 
 ### Work Flow
 
-![Untitled Diagram.drawio8.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/3fb39532-ba64-4b7e-8852-b012edc649d8/Untitled_Diagram.drawio8.png)
+![Untitled Diagram.drawio8.png](/images/Untitled_Diagram.drawio8.png)
 
 ### Virtual Host
 
 - multiple hosts on a server
 - Multiple domains can have the same A record and point to the same IP address. The server uses Virtual Host to determine which site to display for each domain
 
-![Untitled Diagram.drawio9.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/d8824814-2eea-4f46-b869-4d267be754d1/Untitled_Diagram.drawio9.png)
+![Untitled Diagram.drawio9.png](/images/Untitled_Diagram.drawio9.png)
 
 ---
 
@@ -200,7 +200,7 @@ vim /etc/hosts
 
 - How to fetch a resource from a location
 
-![Untitled Diagram.drawio10.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/ba6f5b92-f227-4819-96d9-37628c51ca4c/Untitled_Diagram.drawio10.png)
+![Untitled Diagram.drawio10.png](/images/Untitled%20Diagram.drawio10.png)
 
 ## HTTP
 
@@ -224,7 +224,7 @@ vim /etc/hosts
 - **Body**:
 	- contains the main data exchanged between the client and server, such as forms or webpage content
 
-![Untitled Diagram.drawio44.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/d0c318e8-1dbe-49dd-bd28-fd01dc958355/Untitled_Diagram.drawio44.png)
+![Untitled Diagram.drawio44.png](/images/Untitled%20Diagram.drawio44.png)
 
 ## Headers
 
@@ -254,7 +254,7 @@ curl -v https://35.163.77.62 -d "data=test" #method: POST
 - Is a reverse proxy
 - distributes content
 
-![Untitled Diagram.drawio666.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/eb72149f-aebd-46a2-b9ce-50e06d3ad55b/60a96975-fff4-4e64-9774-6a71ff9589a6/Untitled_Diagram.drawio666.png)
+![Untitled Diagram.drawio666.png](/images/Untitled%20Diagram.drawio666.png)
 
 ### Proxy
 
